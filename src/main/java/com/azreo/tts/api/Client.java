@@ -20,7 +20,8 @@ public class Client
     {
         CommandLineParser parser = new DefaultParser();
         Options options = new Options();
-        options.addRequiredOption("t", "text", true, "Text file to be processed");
+        options.addRequiredOption("", "input-type", true, "Type of input. Must be one of 'text' or 'file'.");
+        options.addRequiredOption("t", "text", true, "Text or text file to be processed");
         options.addOption("o", "output", true, "Output wave filename");
         options.addRequiredOption("i", "id", true, "Your text-to-speech API ID");
         options.addRequiredOption("k", "token", true, "Your text-to-speech API Token");
@@ -35,7 +36,12 @@ public class Client
         }
         Synthesizer synthesizer = new Synthesizer(cmd.getOptionValue("i"), 
                 cmd.getOptionValue("k"), cmd.getOptionValue("l"));
-        byte[] result = synthesizer.synthesize(cmd.getOptionValue("t"));
+        byte[] result = null;
+        if(cmd.getOptionValue("input-type").equals("file")) {
+            result = synthesizer.synthesize(cmd.getOptionValue("t"));
+        } else {
+            result = synthesizer.synthesizeText(cmd.getOptionValue("t"));
+        }
         if(result == null) {
             System.err.println("Text-to-speech process failed.");
             System.err.println("Press any key to exit...");
