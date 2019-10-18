@@ -15,9 +15,13 @@ Go into the project folder, execute "mvn compile" and "mvn install" commands in 
 
 # Usage example:
 
-java -jar azreco-tts-java-1.0.jar -a text/example-tr.txt -l tr-TR -i api_user_id -k api_token -o example-tr.wav 
+java -jar azreco-tts-java-1.0.jar --input-type file -t text/example-tr.txt -l tr-TR -i api_user_id -k api_token -o example-tr.wav 
 
-In this example the application uploads 'example-tr.txt', synthesizes speech using our tr-TR text-to-speech engine and saves the resulting audio as 'example-tr.wav' when the synthesizing process finished.
+or
+
+java -jar azreco-tts-java-1.0.jar --input-type text -t "any text" -l tr-TR -i api_user_id -k api_token -o example-tr.wav 
+
+In this example for input type 'file' the application uploads 'example-tr.txt', synthesizes speech using our tr-TR text-to-speech engine and saves the resulting audio as 'example-tr.wav' when the synthesizing process finished. For input type 'text' the application sends text to the server, synthesizes speech using our tr-TR text-to-speech engine and saves the resulting audio as 'example-tr.wav' when the synthesizing process finished.
 
 
 # How to get user id and token?
