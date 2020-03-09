@@ -198,7 +198,7 @@ public class Synthesizer {
                     System.err.println("Parsing response failed: " + ex.getMessage());
                 }
             } catch (IOException ex) {
-                System.err.println("Making text-to-speech request failed: " + ex.getMessage());
+                System.err.println("Making request to get voices failed: " + ex.getMessage());
                 return null;
             }
             finally {
@@ -211,7 +211,7 @@ public class Synthesizer {
             }
         }
         catch (Exception ex) {
-            System.err.println("Making text-to-speech request failed: " + ex.getMessage());
+            System.err.println("Making request to get voices failed: " + ex.getMessage());
         }        
         finally {
             try {
