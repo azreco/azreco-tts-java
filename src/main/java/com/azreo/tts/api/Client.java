@@ -11,8 +11,8 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
 /**
- * Hello world!
  *
+ * @author AzReco
  */
 public class Client 
 {
@@ -37,20 +37,12 @@ public class Client
         }
         Synthesizer synthesizer = new Synthesizer(cmd.getOptionValue("i"), 
                 cmd.getOptionValue("k"), cmd.getOptionValue("l"));
-<<<<<<< HEAD
 //        System.err.println(synthesizer.getVoices());
         byte[] result = null;
         if(cmd.getOptionValue("input-type").equals("file")) {
             result = synthesizer.synthesize(cmd.getOptionValue("t"), cmd.getOptionValue("tts-id"));
         } else {
             result = synthesizer.synthesizeText(cmd.getOptionValue("t"), cmd.getOptionValue("tts-id"));
-=======
-        byte[] result = null;
-        if(cmd.getOptionValue("input-type").equals("file")) {
-            result = synthesizer.synthesize(cmd.getOptionValue("t"));
-        } else {
-            result = synthesizer.synthesizeText(cmd.getOptionValue("t"));
->>>>>>> 85700ea2ea3537facae72f10ee1e439e24d06050
         }
         if(result == null) {
             System.err.println("Text-to-speech process failed.");

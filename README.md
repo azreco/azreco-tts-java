@@ -17,7 +17,6 @@ Go into the project folder, execute "mvn compile" and "mvn install" commands in 
 
 # Usage example:
 
-<<<<<<< HEAD
 ```sh
 java -jar azreco-tts-java-1.0.jar --input-type file -t text/example-tr.txt -l tr-TR -i api_user_id -k api_token --tts-id tts_id -o example-tr.wav
 ```
@@ -36,18 +35,9 @@ We have several voices for any language. Every voice has own identification. You
 This option is optional and TTS service selects default voice for the given language.
 
 # How to get voice identifications?
-=======
-java -jar azreco-tts-java-1.0.jar --input-type file -t text/example-tr.txt -l tr-TR -i api_user_id -k api_token -o example-tr.wav 
-
-or
-
-java -jar azreco-tts-java-1.0.jar --input-type text -t "any text" -l tr-TR -i api_user_id -k api_token -o example-tr.wav 
-
-In this example for input type 'file' the application uploads 'example-tr.txt', synthesizes speech using our tr-TR text-to-speech engine and saves the resulting audio as 'example-tr.wav' when the synthesizing process finished. For input type 'text' the application sends text to the server, synthesizes speech using our tr-TR text-to-speech engine and saves the resulting audio as 'example-tr.wav' when the synthesizing process finished.
->>>>>>> 85700ea2ea3537facae72f10ee1e439e24d06050
 
 We added new REST get method [http://api.azreco.az/voices?api_id=YOUR_API_ID&api_token=YOUR_API_TOKEN](http://api.azreco.az/voices?api_id=YOUR_API_ID&api_token=YOUR_API_TOKEN). 
-You can call this method in any browser. We also added this into the **Synthesizer** class as a method. The result is JSON array of voice informations. For example:
+You can call this method in any browser. We also added this into the [Synthesizer](https://github.com/azreco/azreco-tts-java/blob/master/src/main/java/com/azreo/tts/api/Synthesizer.java) class as a method. The result is JSON array of voice informations. For example:
 ```json
 [   
    {

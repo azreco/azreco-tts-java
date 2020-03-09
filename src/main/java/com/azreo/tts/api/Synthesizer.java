@@ -29,7 +29,7 @@ import org.apache.http.util.EntityUtils;
 
 /**
  *
- * @author toghrul
+ * @author AzReco
  */
 public class Synthesizer {
     private String userId = null;
@@ -37,10 +37,7 @@ public class Synthesizer {
     private String lang = null;
     private static final String API_URL_FILE = "http://api.azreco.az/synthesize";
     private static final String API_URL_TEXT = "http://api.azreco.az/synthesize/text";
-<<<<<<< HEAD
     private static final String API_URL_VOICES = "http://api.azreco.az/voices";
-=======
->>>>>>> 85700ea2ea3537facae72f10ee1e439e24d06050
     
     public Synthesizer(String userId, String token, String lang) {
         this.userId = userId;
@@ -111,11 +108,7 @@ public class Synthesizer {
         return result;
     }
     
-<<<<<<< HEAD
     public byte[] synthesizeText(String text, String ttsId) {
-=======
-    public byte[] synthesizeText(String text) {
->>>>>>> 85700ea2ea3537facae72f10ee1e439e24d06050
         CloseableHttpClient httpClient = HttpClients.createDefault();
         byte[] result = null;
         try {
@@ -126,12 +119,9 @@ public class Synthesizer {
             reqEntityParams.add(new BasicNameValuePair("api_token", token));
             reqEntityParams.add(new BasicNameValuePair("lang", lang));
             reqEntityParams.add(new BasicNameValuePair("text", text));
-<<<<<<< HEAD
             if(!(ttsId == null || ttsId.isEmpty())) {
                 reqEntityParams.add(new BasicNameValuePair("tts_id", ttsId));
             }
-=======
->>>>>>> 85700ea2ea3537facae72f10ee1e439e24d06050
             httpPost.setEntity(new UrlEncodedFormEntity(reqEntityParams, "utf8"));
             CloseableHttpResponse response = null;
             try {
@@ -179,7 +169,6 @@ public class Synthesizer {
         }
         return result;
     }
-<<<<<<< HEAD
     
     public String getVoices() {
         CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -232,6 +221,4 @@ public class Synthesizer {
         }
         return result;
     }
-=======
->>>>>>> 85700ea2ea3537facae72f10ee1e439e24d06050
 }
