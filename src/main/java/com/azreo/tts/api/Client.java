@@ -26,6 +26,7 @@ public class Client
         options.addRequiredOption("i", "id", true, "Your text-to-speech API ID");
         options.addRequiredOption("k", "token", true, "Your text-to-speech API Token");
         options.addRequiredOption("l", "lang", true, "Code of language to use (e.g., az-AZ, tr-TR)");
+        options.addOption("", "tts-id", true, "Identification of voice for given language. To see identification of voices call getVoices() method of Synthesizer class.");
         CommandLine cmd = null;
         try {
             cmd = parser.parse(options, args);
@@ -36,11 +37,20 @@ public class Client
         }
         Synthesizer synthesizer = new Synthesizer(cmd.getOptionValue("i"), 
                 cmd.getOptionValue("k"), cmd.getOptionValue("l"));
+<<<<<<< HEAD
+//        System.err.println(synthesizer.getVoices());
+        byte[] result = null;
+        if(cmd.getOptionValue("input-type").equals("file")) {
+            result = synthesizer.synthesize(cmd.getOptionValue("t"), cmd.getOptionValue("tts-id"));
+        } else {
+            result = synthesizer.synthesizeText(cmd.getOptionValue("t"), cmd.getOptionValue("tts-id"));
+=======
         byte[] result = null;
         if(cmd.getOptionValue("input-type").equals("file")) {
             result = synthesizer.synthesize(cmd.getOptionValue("t"));
         } else {
             result = synthesizer.synthesizeText(cmd.getOptionValue("t"));
+>>>>>>> 85700ea2ea3537facae72f10ee1e439e24d06050
         }
         if(result == null) {
             System.err.println("Text-to-speech process failed.");
